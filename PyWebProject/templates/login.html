@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+    <style>{{ web_style }}</style>
+    <link rel="stylesheet" type="text/css" href="static/css/login.css">
+    <section id="content" class="'sect">
+    <p class="title">Авторизация</p>
+    <form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.email.label }}<br>
+            {{ form.email(class="form-control", type="email") }}<br>
+            {% for error in form.email.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <p>
+            {{ form.password.label }}<br>
+            {{ form.password(class="form-control", type="password") }}<br>
+            {% for error in form.password.errors %}
+                <div class="alert alert-danger" role="alert">
+                    {{ error }}
+                </div>
+            {% endfor %}
+        </p>
+        <div class="remme">{{ form.remember_me() }} {{ form.remember_me.label }}</div>
+        <p class="but">{{ form.submit(type="submit", class="btn btn-primary") }} <a href="http://127.0.0.1:5000/registration" class="registration">Создать аккаунт</a> </p>
+        <div>{{ message }}</div>
+    </form>
+        </section>
+{% endblock %}

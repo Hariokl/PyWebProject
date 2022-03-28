@@ -1,0 +1,68 @@
+body{
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+section{
+    padding: 1px 15px;
+    border-radius: 10px;
+    max-width: 700px;
+    border: 2px solid black !important;
+}
+
+.title{
+    position: relative;
+    font-size: 25px;
+    font-weight: 800;
+    width: 86%;
+    left: 6%;
+}
+
+.title::before{
+    content: '';
+    top: 2px;
+    left: -4px;
+    position: absolute;
+    background: linear-gradient(180deg, rgb(250, 130, 10), rgb(250, 10, 58));
+    width: 4px;
+    height: 26px;
+    border-radius: 5px;
+}
+
+.title::after{
+    content: '';
+    top: 2px;
+    right: -4px;
+    position: absolute;
+    background: linear-gradient(180deg, rgb(250, 10, 58), rgb(250, 130, 10));
+    width: 4px;
+    height: 26px;
+    border-radius: 5px;
+}
+
+.form-control{
+    border-color: rgb(100, 100, 250);
+    border-radius: 6px;
+}
+
+.but .registration{
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    width: 60%;
+    left: 20%;
+}
+
+.btn{
+    height: 30px;
+    width: 70%;
+    position: relative;
+    top: 50%;
+    left: 15%;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgb(50, 250, 50), rgb(50, 150, 50));
+    border-color: rgb(100, 100, 250);
+    color: white;
+}
