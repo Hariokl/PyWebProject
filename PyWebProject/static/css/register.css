@@ -1,13 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+
 body{
     display: flex;
     height: 100vh;
     justify-content: center;
     align-items: center;
-    font-size: calc(15vh / 3);
+    font-size: calc(12vh / 3);
 }
 
 section{
-    padding: 1px 15px;
+    padding: 1px 10px;
     border-radius: min(2vw, 2vh);
     max-width: 700vw;
     border: calc((1vw + 1vh) / 4) solid black !important;
@@ -16,9 +20,8 @@ section{
 .title{
     text-align: center;
     position: relative;
-    font-size: max(calc(100%) + 5px, 3vh + 5px, 3vw + 5px);
-    font-weight: 1000;
 }
+
 .title::before{
     content: '';
     position: absolute;
@@ -39,34 +42,33 @@ section{
     right: 1%;
 }
 
-.form-control{
-    border-color: rgb(100, 100, 250);
-    border-radius: 6px;
-    height: calc(5vh);
-    width: 100%;
+.sect form .user-details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border-radius: 10px;
 }
 
-.but .registration{
-    font-size: calc(15vh / 3);
-    font-weight: 400;
-    position: relative;
-    width: 60%;
-    left: calc(20% - 1vw);
+.user-details input{
+    height: 5vh;
+    width: 40vw;
+}
+
+form .user-details .form-control{
+    border-radius: 10px;
+}
+
+form input{
+    font-size: calc(9vh / 3);
 }
 
 .btn{
-    font-size: calc(12vh / 3);
-    height: calc(8vh);
-    width: 70%;
     position: relative;
-    top: 50%;
-    left: 15%;
+    width: calc(30%);
+    height: 7vh;
+    left: 35%;
     border-radius: 3vh;
     background: linear-gradient(180deg, rgb(50, 250, 50), rgb(50, 150, 50));
     border-color: rgb(100, 100, 250);
     color: white;
-}
-
-form input{
-    font-size: calc(7vh / 2);
 }

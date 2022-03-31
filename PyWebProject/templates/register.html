@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block content %}
+<style>{{ web_style }}</style>
+<link rel="stylesheet" type="text/css" href="static/css/register.css">
+<section id="content" class="'sect">
+<h1 class="title">Регистрация</h1>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <div class="user-details">
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", type="email", placeholder="Введите электронную почту") }}<br>
+        {% for error in form.email.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="user-details">
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control", placeholder="Придумайте логин") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="user-details">
+        {{ form.password.label }}<br>
+        {{ form.password(class="form-control", type="password", placeholder="Придумайте пароль") }}<br>
+        {% for error in form.password.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <div class="user-details">
+        {{ form.password_again.label }}<br>
+        {{ form.password_again(class="form-control", type="password", placeholder="Введите пароль ещё один раз") }}<br>
+        {% for error in form.password_again.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </div>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+    </section>
+{% endblock %}

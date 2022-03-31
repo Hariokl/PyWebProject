@@ -31,3 +31,19 @@ def login_style(t=None):
     log += f"rgb({sr1}, {sg1}, {sb1}), rgb({sr2}, {sg2}, {sb2}))" + "; }"
     log += '.but .registration{color: ' + f'rgb({rgb});' + '}'
     return log
+
+
+def register_style(t=None):
+    hours = time.localtime()[3] if t is None else t % 24
+    if 0 <= hours <= 12:
+        sr1, sg1, sb1 = 50 + hours * 8, 50 + hours * 11, 100 + hours * 12
+        sr2, sg2, sb2 = hours * 4, hours * 8, 20 + hours * 15
+    else:
+        sr1, sg1, sb1 = 146 - (hours - 12) * 8, 182 - (hours - 12) * 11, 244 - (hours - 12) * 12
+        sr2, sg2, sb2 = 48 - (hours - 12) * 4, 96 - (hours - 12) * 8, 180 - (hours - 12) * 15
+    rgb = ", ".join(map(str, base_style(t)[1][2]))
+    log = base_style(t)[0] + "section{background: linear-gradient(180deg, "
+    log += f"rgb({sr1}, {sg1}, {sb1}), rgb({sr2}, {sg2}, {sb2}))" + "; }"
+    log += '.but .registration{color: ' + f'rgb({rgb});' + '}'
+    return log
+

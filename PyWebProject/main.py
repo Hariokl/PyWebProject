@@ -7,9 +7,10 @@ from werkzeug.utils import redirect
 
 from data import db_session
 from data.loginform import LoginForm
+from data.registerform import RegisterForm
 from data.users import User
 
-from static.python.style import base_style, login_style
+from static.python.style import base_style, login_style, register_style
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'hfu bs8f9vuronr 6tb14 021rtetoehn02br86lwo;'
@@ -43,11 +44,11 @@ def home():
     # session.permanent = True
     global T
     T += 1
-    return render_template("home.html", st=base_style(T))
+    return render_template("home.html", st=base_style(T)[0])
 
 
 @app.route('/login', methods=['GET', 'POST'])
-def login():
+def login_user():
     global T
     T += 1
     form = LoginForm()
@@ -61,6 +62,33 @@ def login():
                                message="Неправильный логин или пароль",
                                form=form, web_style=login_style(T))
     return render_template('login.html', title='Авторизация', form=form, web_style=login_style(T))
+
+
+@app.route('/register', methods=['GET', 'POST'])
+def register_user():
+    global T
+    T += 1
+    form = RegisterForm()
+    if form.validate_on_submit():
+        if form.password.data != form.password_again.data:
+            return render_template('register.html', title='Регистрация',
+                                   form=form,
+                                   message="Пароли не совпадают", web_style=register_style())
+        db_sess = db_session.create_session()
+        if db_sess.query(User).filter(User.email == form.email.data).first():
+            return render_template('register.html', title='Регистрация',
+                                   form=form,
+                                   message="Такой пользователь уже есть", web_style=register_style())
+        user = User(
+            name=form.name.data,
+            email=form.email.data,
+            about=form.about.data
+        )
+        user.set_password(form.password.data)
+        db_sess.add(user)
+        db_sess.commit()
+        return redirect('/login')
+    return render_template('register.html', title='Регистрация', form=form, web_style=register_style())
 
 
 @app.route('/logout')
