@@ -1,10 +1,7 @@
-{% extends "base.html" %}
-
-{% block content %}
 <style>{{ web_style }}</style>
 <link rel="stylesheet" type="text/css" href="static/css/register.css">
 <section id="content" class="'sect">
-<h1 class="title">Регистрация</h1>
+<div class="title">Регистрация</div><br>
 <form action="" method="post">
     {{ form.hidden_tag() }}
     <div class="user-details">
@@ -43,8 +40,7 @@
             </p>
         {% endfor %}
     </div>
-    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
     {{message}}
 </form>
+    <div>{{ form.submit(type="submit", class="btn btn-primary") }}</div>
     </section>
-{% endblock %}

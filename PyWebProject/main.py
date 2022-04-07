@@ -1,11 +1,14 @@
 import datetime
 import time
 
-from flask import Flask, render_template, session, make_response, jsonify, url_for
-from flask_login import LoginManager, login_user, logout_user, login_required
+from pytube import YouTube
+
+from flask import Flask, render_template, session, make_response, jsonify, url_for, request
+from flask_login import LoginManager, logout_user, login_required
 from werkzeug.utils import redirect
 
 from data import db_session
+from data.downloadform import DownloadForm
 from data.loginform import LoginForm
 from data.registerform import RegisterForm
 from data.users import User
@@ -20,31 +23,6 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 T = 1
-
-
-@login_manager.user_loader
-def load_user(user_id):
-    db_sess = db_session.create_session()
-    return db_sess.query(User).get(user_id)
-
-
-@app.errorhandler(404)
-def not_found(_):
-    return make_response(jsonify({'error': 'Not found'}), 404)
-
-
-def main():
-    db_session.global_init('db/blogs.db')
-    app.run()
-
-
-@app.route('/')
-@app.route('/home')
-def home():
-    # session.permanent = True
-    global T
-    T += 1
-    return render_template("home.html", st=base_style(T)[0])
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -96,6 +74,38 @@ def register_user():
 def logout():
     logout_user()
     return redirect('/')
+
+
+@login_manager.user_loader
+def load_user(user_id):
+    db_sess = db_session.create_session()
+    return db_sess.query(User).get(user_id)
+
+
+@app.errorhandler(404)
+def not_found(_):
+    return make_response(jsonify({'error': 'Not found'}), 404)
+
+
+def main():
+    db_session.global_init('db/blogs.db')
+    app.run()
+
+
+@app.route('/', methods=['POST', "GET"])
+def home():
+    global T
+    T += 1
+    form = DownloadForm()
+    if request.method == 'POST':
+        if form.validate_on_submit():
+            address = form.address.data
+            try:
+                video = YouTube(address)
+                print(video.title)
+            except:
+                print('Неправильная ссылка')
+    return render_template("download.html", form=form, style=base_style(T)[0])
 
 
 @app.route('/session_test')

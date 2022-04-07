@@ -7,17 +7,18 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
-    font-size: calc(12vh / 3);
+    font-size: max(calc(12vh / 3), calc(9vw / 3));
 }
 
 section{
-    padding: 1px 10px;
+    padding: 10px 10px;
     border-radius: min(2vw, 2vh);
     max-width: 700vw;
     border: calc((1vw + 1vh) / 4) solid black !important;
 }
 
 .title{
+    font-size: max(calc(15vw / 3), calc(15vh / 3));
     text-align: center;
     position: relative;
 }
@@ -50,12 +51,14 @@ section{
 }
 
 .user-details input{
-    height: 5vh;
-    width: 40vw;
+    height: max(5vh, 3vw);
+    width: max(40vw, 40vh);
 }
 
 form .user-details .form-control{
     border-radius: 10px;
+    background-color: rgba(10, 10, 10, 0.4);
+    color: rgba(250, 250, 250, 0.7);
 }
 
 form input{
@@ -64,9 +67,10 @@ form input{
 
 .btn{
     position: relative;
-    width: calc(30%);
-    height: 7vh;
-    left: 35%;
+    font-size: max(calc(9vh / 3), calc(6vw / 3));
+    width: 40%;
+    height: 10%;
+    left: 30%;
     border-radius: 3vh;
     background: linear-gradient(180deg, rgb(50, 250, 50), rgb(50, 150, 50));
     border-color: rgb(100, 100, 250);

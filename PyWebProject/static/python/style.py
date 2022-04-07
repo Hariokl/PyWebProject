@@ -28,8 +28,8 @@ def login_style(t=None):
         sr2, sg2, sb2 = 48 - (hours - 12) * 4, 96 - (hours - 12) * 8, 180 - (hours - 12) * 15
     rgb = ", ".join(map(str, base_style(t)[1][2]))
     log = base_style(t)[0] + "section{background: linear-gradient(180deg, "
-    log += f"rgb({sr1}, {sg1}, {sb1}), rgb({sr2}, {sg2}, {sb2}))" + "; }"
-    log += '.but .registration{color: ' + f'rgb({rgb});' + '}'
+    log += f"rgba({sr1}, {sg1}, {sb1}, 0.4), rgba({sr2}, {sg2}, {sb2}, 0.4))" + "; }"
+    log += '.registration{color: ' + f'rgba({rgb});' + '}'
     return log
 
 
@@ -41,9 +41,7 @@ def register_style(t=None):
     else:
         sr1, sg1, sb1 = 146 - (hours - 12) * 8, 182 - (hours - 12) * 11, 244 - (hours - 12) * 12
         sr2, sg2, sb2 = 48 - (hours - 12) * 4, 96 - (hours - 12) * 8, 180 - (hours - 12) * 15
-    rgb = ", ".join(map(str, base_style(t)[1][2]))
-    log = base_style(t)[0] + "section{background: linear-gradient(180deg, "
-    log += f"rgb({sr1}, {sg1}, {sb1}), rgb({sr2}, {sg2}, {sb2}))" + "; }"
-    log += '.but .registration{color: ' + f'rgb({rgb});' + '}'
-    return log
+    reg = base_style(t)[0] + "section{background: linear-gradient(180deg, "
+    reg += f"rgba({sr1}, {sg1}, {sb1}, 0.4), rgba({sr2}, {sg2}, {sb2}, 0.4))" + "; }"
+    return reg
 

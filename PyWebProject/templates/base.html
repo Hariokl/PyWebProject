@@ -3,13 +3,35 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<!--    <link rel="stylesheet" type="text/css" href="static/css/teme.css">-->
+    <link rel="stylesheet" type="text/css" href="static/css/base.css">
     <title>{{title}}</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(function() {
+            $(".toggle").on("click", function(){
+                if($(".item").hasClass("active")){
+                    $(".item").removeClass("active");
+                }
+                else{
+                    $(".item").addClass("active");
+                }
+            })
+        });
+    </script>
 </head>
   <body>
     <header>
     </header>
-    <!-- Begin page content -->
+    <nav>
+        <ul class="menu">
+            <li class="logo"><a href="#">YTDownloader</a></li>
+            <li class="item"><a href="#">Home</a></li>
+            <li class="item"><a href="#">Settings</a></li>
+            <li class="item button"><a href="login">Login</a></li>
+            <li class="item button secondary"><a href="register">Sign Up</a></li>
+            <li class="toggle"><span class="bars"></span></li>
+        </ul>
+    </nav>
     <main role="main" class="container">
         {% block content %}{% endblock %}
     </main>

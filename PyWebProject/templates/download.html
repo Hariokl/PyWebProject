@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+<style>{{ style }}</style>
+<link rel="stylesheet" type="text/css" href="static/css/download.css">
+<div class="sect">
+<form action="" method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.address.label }}<br>
+            {{ form.address(class="form-control", placeholder="Введите адресс ссылки") }}<br>
+            {% for error in form.address.errors %}
+                <p class="alert alert-danger" role="alert">
+                    {{ error }}
+                </p>
+            {% endfor %}
+        </p>
+        <p class="but">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+        <div>{{ message }}</div>
+    </form>
+</div>
+{% endblock %}

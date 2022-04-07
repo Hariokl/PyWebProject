@@ -3,20 +3,20 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
-    font-size: calc(15vh / 3);
+    font-size: 35px;
 }
 
 section{
     padding: 1px 15px;
-    border-radius: min(2vw, 2vh);
-    max-width: 700vw;
-    border: calc((1vw + 1vh) / 4) solid black !important;
+    border-radius: 40px;
+    max-width: 700px;
+    border: 5px solid black !important;
 }
 
 .title{
     text-align: center;
     position: relative;
-    font-size: max(calc(100%) + 5px, 3vh + 5px, 3vw + 5px);
+    font-size: 50px;
     font-weight: 1000;
 }
 .title::before{
@@ -42,31 +42,89 @@ section{
 .form-control{
     border-color: rgb(100, 100, 250);
     border-radius: 6px;
-    height: calc(5vh);
+    background-color: rgba(20, 20, 20, 0.4);
+    color: rgb(250, 250, 250, 0.8);
+    height: 35px;
     width: 100%;
 }
 
-.but .registration{
-    font-size: calc(15vh / 3);
+.registration{
+    text-decoration: none;
+    font-size: 35;
     font-weight: 400;
     position: relative;
     width: 60%;
     left: calc(20% - 1vw);
 }
 
+.registration:hover{
+    color: rgb(20, 20, 200);
+}
+
 .btn{
-    font-size: calc(12vh / 3);
+    font-size: 35;
     height: calc(8vh);
     width: 70%;
     position: relative;
     top: 50%;
     left: 15%;
     border-radius: 3vh;
-    background: linear-gradient(180deg, rgb(50, 250, 50), rgb(50, 150, 50));
+    background: linear-gradient(180deg, rgba(50, 250, 50, 1), rgba(50, 150, 50, 0.5));
     border-color: rgb(100, 100, 250);
     color: white;
 }
 
+.btn:hover{
+    background: linear-gradient(180deg, rgba(50, 250, 50, 0.7), rgba(50, 150, 50, 0.2));
+}
+
 form input{
-    font-size: calc(7vh / 2);
+    font-size: 25px;
+}
+
+input[type='checkbox']{
+    height: 25px;
+    width: 25px;
+}
+
+@media all and (max-width: 1000px){
+    body{
+        height: 200vw;
+    }
+    *{
+        font-size: 70;
+    }
+    section{
+        width: 80%;
+        height: 70%;
+    }
+    .title{
+        font-size: 80
+    }
+    .form-control{
+        height: 100px;
+        border-radius: 40px;
+    }
+    form input{
+        font-size: 60px;
+    }
+    input[type='checkbox']{
+        height: 50px;
+        width: 50px;
+    }
+
+    .remme{
+        font-size:70;
+    }
+
+    .btn{
+        font-size: 70px;
+        height: 15vw;
+        border-radius: 50px;
+    }
+
+    .registration{
+        font-size: 60px;
+    }
+
 }
