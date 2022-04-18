@@ -1,23 +1,93 @@
-.sect{
-  position: absolute;
-  width: 90vw;
-  height: 80vh;
-  top: 100px;
-  left: 5vw;
-  background: red;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button{
+    background: red;
+}
+
+body{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sect{
     display: flex;
+    top: 1vh;
+    position: relative;
     justify-content: center;
+    width: 90%;
+    height: 100%;
+    background: rgba(20, 20, 250, 0.4);
+    border-radius: 30px;
+    border: calc(1vmin * 2) solid rgba(20, 20, 20, 0.6);
 }
 
-form .form-control{
-    width: 80vw;
-    max-width: 700px;
-    height: 20vh;
-    max-height: 50px;
-    border-radius: 15px;
-    font-size: 25px;
-    weight: 200;
+.formats{
+    width: 40%;
+    height: 10%;
+    padding: 12px;
 }
+.formats button{
+    height: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    width: 49%;
+    color: white;
+    transition: 0.3s;
+}
+
+button:hover{
+    background: black;
+}
+/*
+.container{
+    top: 0;
+    width: 50%;
+    position: relative;
+}
+
+.click{
+    background-color: red;
+}
+
+.click:hover{
+    background-color: black;
+}
+
+.click,.down_format{
+    padding: 12px;
+    font-size: 1.2em;
+    border: none;
+    outline: none;
+    width: 100%;
+    color: white;
+    transition: 0.3s;
+}
+
+.list{
+    position: absolute;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: 0.3s;
+}
+
+.newlist{
+    transform: scaleY(1);
+}
+
+.links{
+    background-color: black;
+}
+
+.links:hover{
+    background-color: gray;
+    transform: scale(1.1);
+}
+*/

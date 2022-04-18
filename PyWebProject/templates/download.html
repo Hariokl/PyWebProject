@@ -1,21 +1,37 @@
-{% extends "base.html" %}
-{% block content %}
-<style>{{ style }}</style>
-<link rel="stylesheet" type="text/css" href="static/css/download.css">
-<div class="sect">
-<form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.address.label }}<br>
-            {{ form.address(class="form-control", placeholder="Введите адресс ссылки") }}<br>
-            {% for error in form.address.errors %}
-                <p class="alert alert-danger" role="alert">
-                    {{ error }}
-                </p>
-            {% endfor %}
-        </p>
-        <p class="but">{{ form.submit(type="submit", class="btn btn-primary") }}</p>
-        <div>{{ message }}</div>
-    </form>
-</div>
-{% endblock %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>Download</title>
+        <style>{{ style }}</style>
+        <link rel="stylesheet" type="text/css" href="/static/css/download.css">
+    </head>
+    <body>
+        <div class="sect">
+            <div class="formats">
+                <button class="format1 active">Видео</button>
+                <button class="format2">Аудио</button>
+            </div>
+            <button class="download">Download</button>
+            <script>
+                    let click1 = document.querySelector('.format1');
+                    let click2 = document.querySelector('.format2');
+                    click1.addEventListener("click", ()=>{
+                        if $(".format1").hasClass("active"){
+                            $(".format1").removeClass("active");
+                        }
+                        else{
+                            $(".format1").addClass("active");
+                        }});
+                    click2.addEventListener("click", ()=>{
+                        if $(".format2").hasClass("active"){
+                            $(".format2").removeClass("active");
+                        }
+                        else{
+                            $(".format2").addClass("active");
+                        }});
+             </script>
+        </div>
+    </body>
+</html>

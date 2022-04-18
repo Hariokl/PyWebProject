@@ -1,4 +1,51 @@
 {% extends "base.html" %}
 {% block content %}
-<style>{{ st }}</style>
+<style>{{ style }}</style>
+<link rel="stylesheet" type="text/css" href="/static/css/home.css">
+<div class="sect">
+<form action="" method="post">
+    {{ address_form.hidden_tag() }}
+    <p class="inp">
+        <br>
+            {{ address_form.address(class="form-control", placeholder=url_value, value="") }}
+            {{ address_form.submit_address(type="submit", class="btn btn-primary") }}
+        <br>
+        {% for error in address_form.address.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <div>{{ message }}</div>
+    {% if interface_elements != {} %}
+        <br>
+            <div class="interface">
+                <div class="formats">
+                    <button class="format1 active">Видео</button>
+                    <button class="format2">Аудио</button>
+                </div>
+                <img src="{{interface_elements.img}}" alt="video_image" class="image">
+                {{ download_form.submit_download(type="submit", class="btn-primary downloadbtn") }}
+                <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+                <script type="text/javascript">
+                    $(function() {
+                        $(".format1").on("click", function(){
+                            if($(".format2").hasClass("active")){
+                                $(".format1").addClass("active");
+                                $(".format2").removeClass("active");
+                            }
+                        })
+                        $(".format2").on("click", function(){
+                            if($(".format1").hasClass("active")){
+                                $(".format2").addClass("active");
+                                $(".format1").removeClass("active");
+                            }
+                        })
+                    });
+                </script>
+            </div>
+        </br>
+    {% endif %}
+    </form>
+</div>
 {% endblock %}

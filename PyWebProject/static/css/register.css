@@ -70,6 +70,8 @@ form input{
     font-size: max(calc(9vh / 3), calc(6vw / 3));
     width: 40%;
     height: 10%;
+    bottom: 0;
+    padding: 1px 1px;
     left: 30%;
     border-radius: 3vh;
     background: linear-gradient(180deg, rgb(50, 250, 50), rgb(50, 150, 50));

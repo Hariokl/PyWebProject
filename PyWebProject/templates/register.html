@@ -1,5 +1,5 @@
 <style>{{ web_style }}</style>
-<link rel="stylesheet" type="text/css" href="static/css/register.css">
+<link rel="stylesheet" type="text/css" href="/static/css/register.css">
 <section id="content" class="'sect">
 <div class="title">Регистрация</div><br>
 <form action="" method="post">
@@ -41,6 +41,6 @@
         {% endfor %}
     </div>
     {{message}}
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
 </form>
-    <div>{{ form.submit(type="submit", class="btn btn-primary") }}</div>
     </section>
