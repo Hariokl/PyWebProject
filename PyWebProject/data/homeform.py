@@ -8,6 +8,6 @@ class AddressDownloadForm(FlaskForm):
     address = StringField('Введите адрес ссылки', validators=[DataRequired()])
     submit_address = SubmitField('Найти')
 
-
-class DownloadForm(FlaskForm):
-    submit_download = SubmitField("Скачать")
+#
+# class DownloadForm(FlaskForm):
+#     submit_download = SubmitField("Скачать")

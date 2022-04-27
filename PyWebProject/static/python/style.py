@@ -59,9 +59,8 @@ def home_style(t=None):
     btn_b_rgb = color[4]
     back_hover_rgb = btn_b_rgb[0] - 30, btn_b_rgb[0] - 30, btn_b_rgb[0] - 30
     dow = base_style(t)
-    dow += ".downloadbtn,.btn{" + f"color: rgb{btn_t_rgb};" + f"background: rgb{btn_b_rgb};" + '}'
-    dow += ".downloadbtn:hover,.btn:hover{" + f"background: rgb{back_hover_rgb}" + "}"
-    print(".downloadbtn{" + f"color: rgb{btn_t_rgb};" + f"background: rgb({btn_b_rgb});" + '}')
+    dow += ".confirm{" + f"color: rgb{btn_t_rgb};" + f"background: rgb{btn_b_rgb};" + '}'
+    dow += ".confirm:hover{" + f"background: rgb{back_hover_rgb}" + "}"
     return dow
 
 

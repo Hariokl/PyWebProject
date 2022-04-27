@@ -8,7 +8,7 @@
     <p class="inp">
         <br>
             {{ address_form.address(class="form-control", placeholder=url_value, value="") }}
-            {{ address_form.submit_address(type="submit", class="btn btn-primary") }}
+            {{ address_form.submit_address(type="submit", class="btn btn-primary confirm") }}
         <br>
         {% for error in address_form.address.errors %}
             <p class="alert alert-danger" role="alert">
@@ -25,7 +25,9 @@
                     <button class="format2">Аудио</button>
                 </div>
                 <img src="{{interface_elements.img}}" alt="video_image" class="image">
-                {{ download_form.submit_download(type="submit", class="btn-primary downloadbtn") }}
+                <a href="/download/video/{{ video.video_id }}" download="" id="dwnbut" class="btn-primary downloadbtn">
+                    Скачать
+                </a>
                 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
                 <script type="text/javascript">
                     $(function() {
@@ -33,12 +35,14 @@
                             if($(".format2").hasClass("active")){
                                 $(".format1").addClass("active");
                                 $(".format2").removeClass("active");
+                                $('#dwnbut').attr('href', "/download/video/{{ video.video_id }}");
                             }
                         })
                         $(".format2").on("click", function(){
                             if($(".format1").hasClass("active")){
                                 $(".format2").addClass("active");
                                 $(".format1").removeClass("active");
+                                $('#dwnbut').attr('href', "/download/audio/{{ video.video_id }}");
                             }
                         })
                     });
